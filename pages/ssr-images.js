@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 import Image from 'next/image';
 
 const SSRImages = ({ images }) => {
@@ -29,5 +31,15 @@ const SSRImages = ({ images }) => {
         </div>
     );
 };
+
+export async function getStaticProps() {
+    const images = fs.readdirSync('public/vjezba6');
+
+    return {
+        props: {
+            images,
+        },
+    };
+}
 
 export default SSRImages;
