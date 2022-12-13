@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import api from '../api';
-import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
+import HeaderFooterLayout from '../Layouts/HeaderFooterLayout';
 import useAuth from '../hooks/useAuth';
 
 const Self = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
+import HeaderFooterLayout from '../Layouts/HeaderFooterLayout';
 
 const studentsConstArray = [
     {
