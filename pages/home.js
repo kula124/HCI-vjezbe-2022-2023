@@ -1,6 +1,6 @@
 import CTA from '../components/CTA.js';
 import Testimonials from '../components/Testimonials.js';
-import HeaderFooterLayout from '../layouts/HeaderFooterLayout.js';
+import HeaderFooterLayout from '../Layouts/HeaderFooterLayout.js';
 
 const Hello = () => {
     return (
