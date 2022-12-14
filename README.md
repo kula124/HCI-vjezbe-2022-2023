@@ -6,9 +6,15 @@ U zadnjoj vježbi demonstrirat ćemo kako radi i čemu služi Next Image i kako 
 
 ### Next Image
 
+Izvori:
+
+https://www.datocms.com/blog/nextjs-images
+
+https://medium.com/eincode/how-to-use-next-js-image-component-dfbf3725b12
+
 > ⚠️ Next 13 mijenja API kojim se koristi NextImage, ali principi rada i prednosti ostaju.
 
-`<Image />` koji smo već viđali do sad donosi prednosti nad običnim `<img />` tagom.
+`koji smo već viđali do sad donosi prednosti nad običnim` tagom.
 Neke od prednosti uključuju:
 
 -   **Brže učitavanje stranice**: slike Next.js učitavat će se samo pri ulasku u okvir za prikaz, a prema zadanim se postavkama učitavaju odgođeno.
@@ -105,19 +111,53 @@ module.exports = {
 };
 ```
 
-Ako koristitmo `<Image />` na Nextu 13 ne trebamo `layout` prop.
+Ako koristimo ``na Nextu 13 ne trebamo`layout` prop.
+
+## SEO i meta tags
+
+SEO je dio dizajna. Stranica treba imati naslov vidljiv u browseru, infomracije koje će prikazati u Google pretragi, ikonu i sl.
+
+SEO je i dosta bitan za poslovne ciljeve. Detaljnije ovdje:
+https://www.metricmarketing.com/blog/the-importance-of-seo-for-your-business-benefits-of-seo-why-seo-is-so-powerful/
+
+Sljedi primjer dodavanja SEO-a u Next koristeći third party paket: [Next-SEO](https://www.npmjs.com/package/next-seo?activeTab=readme).
+
+```jsx
+<NextSeo
+    title="HCI 2022/2023"
+    description="A short description goes here."
+    openGraph={{
+        url: 'http://marjan.fesb.hr/~mcagalj/',
+        title: 'Our cool HCI page!',
+        description: 'Learn how to make pages using NEXT JS!',
+        images: [
+            {
+                url: 'https://res.cloudinary.com/mcagalj/image/upload/f_auto,c_limit,w_128,q_auto/v1636883352/next_course/logo_t6nqep.png',
+            },
+        ],
+        siteName: 'SiteName',
+    }}
+    twitter={{
+        handle: '@handle',
+        site: '@site',
+        cardType: 'summary_large_image',
+    }}
+/>
+```
+
+Za testiranje možemo koristiti `localtunnel` i `https://www.opengraph.xyz/`.
 
 ## Deploy
 
 Za deploy koristit ćemo **Vercel**! Platformu tvoraca Next-a. Alternativno, možemo koristiti **Netlify**, privatni VPS ili RasberyPI (extra bodovi za ovo 😁).
 
-Deploy ćemo radit pomoću GitHub-a. Svaki novi push u `main` branch aktivirat će ponovni deploy.  
-Deploy korak radi build Next aplikacije i objavljuje stranicu javno. Spajanje tog koraka na GitHub primjer je automatizacije deploxa koja se još zove i **Continuous Deployment**
+Deploy ćemo raditi pomoćuu GitHub-a. Svaki novi push u `main` branch aktivirat će ponovni deploy.  
+Deploy korak radi build Next aplikacije i objavljuje stranicu javno. Spajanje tog koraka na GitHub primjer je automatizacijedeployaa koja se još zove i **Continuous Deployment**
 
-Započetak registrirajmo se na Vercel koristeći Github Account:
-https://vercel.com
+Započetak registrirajmo se naVercell koristeći Githubb Account:
+[Vercel](https:/vercell.com)
 
-Zatim idemo na stvaranje novog projekta i biramo naš repo.
+Zatim idemo na stvaranje novog projekta i biramo našrepoo.
 
 <p align='center'>
   <img src='public/Deploy/pick_a_repo.png'>
@@ -129,6 +169,8 @@ Zatim na koraku možemo postaviti konfiguraciju. Za sada nam ne treba:
   <img src='public/Deploy/finish.png'>
 </p>
 
-> ✅ Commit  
-> `git add .`  
-> `git commit -m "Vjezba 6: List all posts"`
+Ako je sve prošlo ok trebali bismo vidjeti nešto ovako:
+
+<p align='center'>
+    <img src='public/Deploy/sucessful_deploy.png' />
+</P>
